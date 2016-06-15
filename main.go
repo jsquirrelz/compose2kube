@@ -42,10 +42,10 @@ func init() {
 func main() {
 	flag.Parse()
 
-	p := project.NewProject(nil, &project.Context{
+	p := project.NewProject(&project.Context{
 		ProjectName: "kube",
                 ComposeFiles: []string{composeFile},
-	}, nil)
+	}, nil, nil)
 
 	if err := p.Parse(); err != nil {
 		log.Fatalf("Failed to parse the compose project from %s: %v", composeFile, err)
